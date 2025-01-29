@@ -3,10 +3,12 @@ services:
     image: dockurr/windows
     container_name: windows
     environment:
-      VERSION: "11"
+      VERSION: "https://cdimage.kali.org/kali-2024.4/kali-linux-2024.4-installer-amd64.iso"
+      ARGUMENTS: "-device usb-host,vendorid= 0bda,productid=c811"
     devices:
       - /dev/kvm
       - /dev/net/tun
+      - /dev/bus/usb
     cap_add:
       - NET_ADMIN
     ports:
